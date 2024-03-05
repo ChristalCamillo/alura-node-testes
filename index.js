@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const somaHorasExtras = (salario, valorHorasExtras) => salario + valorHorasExtras;
 
 const calculaDescontos = (salario, descontos) => salario - descontos;
@@ -16,14 +17,26 @@ const verifiqueSe = (valor) => {
   return assercoes;
 };
 
-const teste = (titulo, esperado, retornado) => {
-  if (esperado === retornado) {
+// faremos uma func de teste mais generica
+const teste = (titulo, funcaoDeTeste) => {
+  try {
+    funcaoDeTeste();
     console.log(`${titulo} passou`);
-  } else {
-    console.error(`${titulo} não passou`);
+  } catch {
+    console.error(`${titulo} nao passou`);
   }
 };
 
-teste('somaHorasExtras', 2500, somaHorasExtras(2000, 500));
+teste('somaHorasExtras', () => {
+  const valorEsperado = 2500;
+  const valorRetornado = somaHorasExtras(2000, 500);
 
-teste('calculaDesconto', 2200, calculaDescontos(2500, 300));
+  verifiqueSe(valorRetornado).ehExatamenteIgualA(valorEsperado);
+});
+
+teste('calculaDesconto', () => {
+  const valorEsperado = 2300;
+  const valorRetornado = calculaDescontos(2500, 200);
+
+  verifiqueSe(valorRetornado).ehExatamenteIgualA(valorEsperado);
+});
