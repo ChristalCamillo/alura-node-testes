@@ -1,4 +1,5 @@
-/* eslint-disable no-console */
+import assert from 'node:assert/strict';
+
 const somaHorasExtras = (salario, valorHorasExtras) => salario + valorHorasExtras;
 
 const calculaDescontos = (salario, descontos) => salario - descontos;
@@ -7,11 +8,8 @@ const calculaDescontos = (salario, descontos) => salario - descontos;
 const verifiqueSe = (valor) => {
   // vamos guardar todos os testes aqui
   const assercoes = {
-    ehExatamenteIgualA(valorEsperado) {
-      if (valor !== valorEsperado) {
-        // eslint-disable-next-line no-throw-literal
-        throw {};
-      }
+    ehExatamenteIgualA(esperado) {
+      assert.strictEqual(valor, esperado);
     },
   };
   return assercoes;
