@@ -16,9 +16,6 @@
 |expect.stringContaining(string)|Quando o valor recebido é uma String que contém a String esperada|
 |expect.stringMatching(string / regexp)|Quando o valor recebido é uma String que contém a String ou expressão regular esperada|
 |expect.addSnapshotSerializer(serializer)|Para adicionar um módulo que formata estruturas de dados específicas da aplicação|
-|.not|Se você sabe como testar algo, .not|
-
-||permite que você teste seu oposto|
-| :- | - |
+|.not|Se você sabe como testar algo, .not permite que teste seu oposto|
 |.resolves|Decodifica o valor de uma promessa cumprida, para que qualquer outro matcher possa então ser encadeado|
 |.rejects|Decodifica o motivo de uma promessa rejeitada, para que qualquer outro matcher possa ser encadeado|
