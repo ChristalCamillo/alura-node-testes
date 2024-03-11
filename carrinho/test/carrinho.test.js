@@ -33,6 +33,9 @@ describe('Testes do carrinho', () => {
   });
 
   it('Deve lançar erro ao finalizar compra com carrinho vazio', () => {
+    // não criamos um carrinho direto se n ele n pegaria o comportamento,
+    // e sim uma função q mimetiza o comportamento
+    // esperado do carrinho para certificar de q o erro está sendo lançado
     function englobaErroCarrinho() {
       const carrinho = new Carrinho();
       carrinho.finalizaCompra();
